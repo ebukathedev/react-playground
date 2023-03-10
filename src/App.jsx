@@ -1,14 +1,15 @@
-import Home from "./components/Home";
-import Navbar from "./components/Navbar";
+import BgColorChanger from "./Apps/BgColorChanger";
+import TodoApp from "./Apps/TodoApp";
+import TypingBox from "./Apps/TypingBox";
 
 const App = () => {
 	return (
-		<div>
-			<Navbar />
-			<main className="p-5 max-w-[600px] my-10 mx-auto">
-				<Home/>
-			</main>
-		</div>
+		<main className="h-screen w-screen overflow-x-hidden">
+			<BgColorChanger />
+			<TypingBox />
+			<TodoApp />
+			<BgColorChanger />
+		</main>
 	);
 };
 
