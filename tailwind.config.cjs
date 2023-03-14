@@ -6,14 +6,14 @@ module.exports = {
 			xsm: "375px",
 			sm: "480px",
 			md: "768px",
-			lg: "976px",
+			lg: "1024px",
 			xl: "1440px",
 		},
 		extend: {
 			colors: {
-				gray: "#333",
+				"react-blue": "#00D8FF",
 				redPink: "#f1356d",
-				lightGray: "#f2f2f2"
+				lightGray: "#f2f2f2",
 			},
 		},
 	},
