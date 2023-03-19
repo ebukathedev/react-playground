@@ -33,21 +33,21 @@ const BgColorChanger = () => {
 
 	return (
 		<section
-			className="grid place-items-center h-full"
+			className="grid h-full place-items-center"
 			style={{ backgroundColor: bgColor }}
 		>
 			<div className="max-w-[400px] bg-slate-700 flex flex-col space-y-6 p-5 rounded-md">
-				<span className="font-bold text-white text-lg md:text-2xl">
+				<span className="text-lg font-bold text-white md:text-2xl">
 					Background Color Changer
 				</span>
 				<button
-					className="py-1 px-8 border-black border rounded-md self-center bg-slate-300 font-bold"
+					className="self-center px-8 py-1 font-bold border border-black rounded-md bg-slate-300"
 					onClick={handleClick}
 				>
 					Click
 				</button>
 
-				<span className="font-bold tracking-wide text-center uppercase text-xl" style={{color: bgColor}}>{ bgColor}</span>
+				<span className="text-xl font-bold tracking-wide text-center uppercase" style={{color: bgColor}}>{ bgColor}</span>
 			</div>
 		</section>
 	);

@@ -1,20 +1,22 @@
 import React, { useState } from "react";
 
-const Task = ({ text, isDone, taskDone }) => {
+const Task = ({ id, text, isDone, onDelete }) => {
+	const [isTaskDone, setIsTaskDone] = useState(isDone);
+
 	return (
-		<li className="list-disc text-white">
-			<div className="flex items-center">
+		<li className="text-white list-disc">
+			<div className={`flex items-center ${isTaskDone && "opacity-70"}`}>
 				<span
 					className={`font-medium flex-1 ${
-						isDone ? "opacity-70 line-through" : ""
+						isTaskDone && "line-through"
 					}`}
-					onClick={() => taskDone(!isDone)}
+					onClick={() => setIsTaskDone(!isTaskDone)}
 				>
 					{text}
 				</span>
 				<button
 					className="text-2xl text-blue-300"
-					onClick={() => console.log("deleted")}
+					onClick={() => onDelete(id)}
 				>
 					&times;
 				</button>
@@ -24,7 +26,6 @@ const Task = ({ text, isDone, taskDone }) => {
 };
 
 const TodoApp = () => {
-	const [isDone, setIsDone] = useState(false);
 	const [text, setText] = useState("");
 	const [tasks, setTasks] = useState([]);
 
@@ -38,27 +39,29 @@ const TodoApp = () => {
 	const handleClick = (e, text) => {
 		e.preventDefault();
 		let randomNumber = Math.floor(Math.random() * 100 + 1);
-		let obj = { id: randomNumber, textValue: text, isDone: isDone };
+		let obj = { id: randomNumber, textValue: text, isDone: false };
 		setText("");
-		setTasks((prevValue) => [...prevValue, obj]);
-		console.log([...tasks, obj]);
+		text && setTasks((prevValue) => [...prevValue, obj]);
 	};
 
-	const taskDone = (isDone) => setIsDone(!isDone);
+	const handleDelete = (id) => {
+		let newTasks = tasks.filter((obj) => obj.id != id);
+		setTasks(newTasks);
+	};
 
 	return (
-		<section className="grid place-items-center h-full bg-slate-300">
+		<section className="grid h-full px-4 place-items-center bg-slate-300">
 			<div className="max-w-[600px] bg-slate-700 flex flex-col space-y-6 p-5 rounded-md">
-				<div className="font-bold text-white text-center text-lg md:text-2xl overflow-x-auto">
+				<div className="overflow-x-auto text-lg font-bold text-center text-white md:text-2xl">
 					Todo App
 				</div>
 				<form
-					className="flex gap-2"
+					className="flex flex-wrap gap-2 md:flex-nowrap max-sm:justify-center"
 					onSubmit={(e) => handleClick(e, text)}
 				>
 					<input
 						type="text"
-						className="font-bold text-slate-700 text-lg bg-slate-300 p-2 rounded-md flex-1"
+						className="flex-1 p-2 text-lg font-bold rounded-md text-slate-700 bg-slate-300"
 						placeholder="Start typing"
 						onChange={(e) => handleChange(e)}
 						value={text}
@@ -67,13 +70,14 @@ const TodoApp = () => {
 						Add
 					</button>
 				</form>
-				<ul className="px-5 flex flex-col space-y-3">
+				<ul className="flex flex-col px-5 space-y-3">
 					{tasks.map((obj, index) => (
 						<Task
 							key={obj.id}
+							id={obj.id}
 							text={obj.textValue}
 							isDone={obj.isDone}
-							taskDone={() => taskDone(obj.isDone)}
+							onDelete={handleDelete}
 						/>
 					))}
 				</ul>

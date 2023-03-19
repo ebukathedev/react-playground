@@ -12,8 +12,6 @@ module.exports = {
 		extend: {
 			colors: {
 				"react-blue": "#00D8FF",
-				redPink: "#f1356d",
-				lightGray: "#f2f2f2",
 			},
 		},
 	},

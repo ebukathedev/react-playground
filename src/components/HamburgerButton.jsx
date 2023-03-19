@@ -2,7 +2,11 @@ import React from "react";
 
 const HamburgerButton = ({ isOpen, onClick }) => {
 	return (
-		<div className="flex flex-col space-y-1 lg:hidden" onClick={onClick}>
+		<div
+			className="flex flex-col space-y-1 lg:hidden"
+			onClick={onClick}
+			onBlur={onClick}
+		>
 			<span
 				className={`w-4 h-1 bg-react-blue rounded duration-200 ${
 					isOpen && "rotate-45 translate-x-[2px] translate-y-[2px]"

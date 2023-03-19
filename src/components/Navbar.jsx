@@ -2,16 +2,12 @@ import React, { useState } from "react";
 import HamburgerButton from "./HamburgerButton";
 import Logo from "./logo";
 
-const Navbar = () => {
-	const [isOpen, setIsOpen] = useState(false);
-
-	const handleClick = () => setIsOpen(!isOpen);
-
+const Navbar = ({ isOpen, onClick }) => {
 	return (
-		<header className="py-5 px-4 bg-slate-800 md:px-8 md:py-7 lg:hidden">
-			<div className="container mx-auto flex items-center justify-between">
-				<Logo />
-				<HamburgerButton isOpen={isOpen} onClick={handleClick} />
+		<header className="px-4 py-5 bg-slate-800 lg:hidden">
+			<div className="container flex items-center justify-between mx-auto">
+				<Logo styles="flex" />
+				<HamburgerButton isOpen={isOpen} onClick={onClick} />
 			</div>
 		</header>
 	);
