@@ -10,19 +10,15 @@ const App = () => {
 	const handleClick = () => setIsOpen(!isOpen);
 
 	return (
-		<>
-			<div className="flex flex-col w-screen h-screen">
-				<Navbar isOpen={isOpen} onClick={handleClick} />
-				<div className="relative flex-1 overflow-hidden lg:flex">
-					<SideBar isOpen={isOpen} />
-					<main className="w-full h-full overflow-x-hidden">
-						<TodoApp />
-						<BgColorChanger />
-						<TypingBox />
-					</main>
-				</div>
+		<div className="flex flex-col w-screen h-screen font-montserrat">
+			<Navbar isOpen={isOpen} onClick={handleClick} />
+			<div className="relative flex-1 overflow-hidden lg:flex">
+				<SideBar isOpen={isOpen} />
+				<main className="w-full h-full overflow-x-hidden">
+					<TodoApp />
+				</main>
 			</div>
-		</>
+		</div>
 	);
 };
 

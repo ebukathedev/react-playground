@@ -13,6 +13,9 @@ module.exports = {
 			colors: {
 				"react-blue": "#00D8FF",
 			},
+			fontFamily: {
+				montserrat: ["Montserrat", "sans-serif"],
+			},
 		},
 	},
 	plugins: [],

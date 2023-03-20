@@ -5,7 +5,11 @@ const Task = ({ id, text, isDone, onDelete }) => {
 
 	return (
 		<li className="text-white list-disc">
-			<div className={`flex items-center ${isTaskDone && "opacity-70"}`}>
+			<div
+				className={`flex items-center space-x-4 ${
+					isTaskDone && "opacity-70"
+				}`}
+			>
 				<span
 					className={`font-medium flex-1 ${
 						isTaskDone && "line-through"
