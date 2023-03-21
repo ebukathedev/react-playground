@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import HamburgerButton from "./HamburgerButton";
-import Logo from "./logo";
+import Logo from "./Logo";
 
 const Navbar = ({ isOpen, onClick }) => {
 	return (
