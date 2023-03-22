@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "./Logo";
+import Logo from "../Logo";
 import AppLinksList from "./AppLinksList";
 
 const sideBarStyles =
@@ -14,11 +14,6 @@ const SideBar = ({ isOpen }) => {
 		>
 			<Logo styles="hidden lg:flex px-5" />
 			<AppLinksList />
-			<footer className="hidden mt-auto bg-red-300 ">
-				<span>Gi</span>
-				<span>Gi</span>
-				<span>Gi</span>
-			</footer>
 		</aside>
 	);
 };

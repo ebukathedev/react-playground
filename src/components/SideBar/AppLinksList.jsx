@@ -3,7 +3,7 @@ import AppLink from "./AppLink";
 
 const AppLinksList = () => {
 	return (
-		<ul className="flex flex-col space-y-2 overflow-y-scroll text-white">
+		<ul className="flex flex-col space-y-2 text-white">
 			<AppLink title="Background Color Changer" path="bg-color-changer" />
 			<AppLink title="Typing Box" path="typing-box" />
 			<AppLink title="Todo App" path="todo-app" />
