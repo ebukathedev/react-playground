@@ -8,6 +8,10 @@ const AppLinksList = () => {
 			<AppLink title="Typing Box" path="typing-box" />
 			<AppLink title="Todo App" path="todo-app" />
 			<AppLink title="Tic-Tac-Toe" path="/" />
+			<AppLink
+				title="Duplicate Character Remover"
+				path="duplicate-character-remover"
+			/>
 			{/* <AppLink title="Digital Clock" />
 			<AppLink title="Counter App" />
 			<AppLink title="Letter Counter" />

@@ -1,10 +1,12 @@
 import { useState } from "react";
+import { Route, Routes } from "react-router-dom";
 import BgColorChanger from "./Apps/BgColorChanger";
+import FrontendForm from "./Apps/DuplicateCharacterRemover/FrontendForm";
+import CharacterRemover from "./Apps/DuplicateCharacterRemover/CharacterRemover";
 import TodoApp from "./Apps/TodoApp";
 import TypingBox from "./Apps/TypingBox";
 import Navbar from "./components/Navbar/Navbar";
 import SideBar from "./components/SideBar/SideBar";
-import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Whoops404 from "./pages/Whoops404";
 
@@ -27,6 +29,15 @@ const App = () => {
 						<Route path="/todo-app" element={<TodoApp />} />
 						<Route path="/typing-box" element={<TypingBox />} />
 						<Route path="/typing-box" element={<TypingBox />} />
+						<Route
+							path="/duplicate-character-remover"
+							element={<FrontendForm />}
+						>
+							<Route
+								path="/duplicate-character-remover/character-remover"
+								element={<CharacterRemover />}
+							/>
+						</Route>
 						<Route path="*" element={<Whoops404 />} />
 					</Routes>
 				</main>
