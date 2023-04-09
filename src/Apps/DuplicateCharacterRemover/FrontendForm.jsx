@@ -1,26 +1,23 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { FormContext } from "../../context/FormContext";
 
 const FrontendForm = () => {
 	const [text, setText] = useState("");
 	const [isValid, setIsValid] = useState(false);
-
-	const handleChange = (e) => {
-		let inputValue = "";
-		const value = e.target.value;
-		inputValue += value;
-		setText(inputValue);
-	};
+	const { formState, setFormState } = useContext(FormContext);
+	const navigate = useNavigate();
 
 	const handleSubmit = (e, text) => {
 		e.preventDefault();
-		const inputValue = text.trim();
-		if (!inputValue || inputValue.length === 0) {
-			alert("Please provide a non-empty value");
-		} else {
+		if (text.trim().length > 0) {
 			setIsValid(true);
+			setFormState(text);
+			navigate("/duplicate-character-remover/character-remover");
+		} else {
+			alert("Please provide a non-empty value");
 		}
-		console.log(inputValue);
+		console.log(text);
 		setText("");
 	};
 
@@ -38,7 +35,9 @@ const FrontendForm = () => {
 						type="text"
 						className="flex-1 p-2 text-lg font-bold rounded-md text-slate-700 bg-slate-300"
 						placeholder="Write something"
-						onChange={(e) => handleChange(e)}
+						onChange={(e) => {
+							setText(e.target.value);
+						}}
 						value={text}
 					/>
 					<button className="py-2 px-8 rounded-md self-center border-[2px] border-black bg-blue-300 font-bold text-lg">

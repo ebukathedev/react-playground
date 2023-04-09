@@ -9,40 +9,42 @@ import Navbar from "./components/Navbar/Navbar";
 import SideBar from "./components/SideBar/SideBar";
 import Home from "./pages/Home";
 import Whoops404 from "./pages/Whoops404";
+import FormContextProvider from "./context/FormContext";
 
 const App = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	const handleClick = () => setIsOpen(!isOpen);
 
 	return (
-		<div className="flex flex-col w-screen h-screen font-montserrat">
-			<Navbar isOpen={isOpen} onClick={handleClick} />
-			<div className="relative flex-1 overflow-hidden lg:flex">
-				<SideBar isOpen={isOpen} />
-				<main className="w-full h-full overflow-x-hidden">
-					<Routes>
-						<Route path="/" element={<Home />} />
-						<Route
-							path="/bg-color-changer"
-							element={<BgColorChanger />}
-						/>
-						<Route path="/todo-app" element={<TodoApp />} />
-						<Route path="/typing-box" element={<TypingBox />} />
-						<Route path="/typing-box" element={<TypingBox />} />
-						<Route
-							path="/duplicate-character-remover"
-							element={<FrontendForm />}
-						>
+		<FormContextProvider>
+			<div className="flex flex-col w-screen h-screen font-montserrat">
+				<Navbar isOpen={isOpen} onClick={handleClick} />
+				<div className="relative flex-1 overflow-hidden lg:flex">
+					<SideBar isOpen={isOpen} />
+					<main className="w-full h-full overflow-x-hidden">
+						<Routes>
+							<Route path="/" element={<Home />} />
+							<Route
+								path="/bg-color-changer"
+								element={<BgColorChanger />}
+							/>
+							<Route path="/todo-app" element={<TodoApp />} />
+							<Route path="/typing-box" element={<TypingBox />} />
+							<Route path="/typing-box" element={<TypingBox />} />
+							<Route
+								path="/duplicate-character-remover"
+								element={<FrontendForm />}
+							/>
 							<Route
 								path="/duplicate-character-remover/character-remover"
 								element={<CharacterRemover />}
 							/>
-						</Route>
-						<Route path="*" element={<Whoops404 />} />
-					</Routes>
-				</main>
+							<Route path="*" element={<Whoops404 />} />
+						</Routes>
+					</main>
+				</div>
 			</div>
-		</div>
+		</FormContextProvider>
 	);
 };
 
