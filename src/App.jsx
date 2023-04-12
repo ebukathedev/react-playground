@@ -10,6 +10,7 @@ import SideBar from "./components/SideBar/SideBar";
 import Home from "./pages/Home";
 import Whoops404 from "./pages/Whoops404";
 import FormContextProvider from "./context/FormContext";
+import MemeGenerator from "./Apps/MemeGenerator";
 
 const App = () => {
 	const [isOpen, setIsOpen] = useState(false);
@@ -38,6 +39,10 @@ const App = () => {
 							<Route
 								path="/duplicate-character-remover/character-remover"
 								element={<CharacterRemover />}
+							/>
+							<Route
+								path="/meme-generator"
+								element={<MemeGenerator />}
 							/>
 							<Route path="*" element={<Whoops404 />} />
 						</Routes>
